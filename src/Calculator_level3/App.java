@@ -35,7 +35,7 @@ public class App {
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 operand = in.nextLine();
 
-                System.out.println("두 번째 숫자를 입력하세요: ");
+                System.out.print("두 번째 숫자를 입력하세요: ");
                 b = in.nextLine();
 
                 Number firstNumber = a.contains(".") ? Double.parseDouble(a) : Integer.parseInt(a);

@@ -69,11 +69,15 @@ public abstract class Calculator<T extends Number> {
         resultQueue.remove();
     }
 
-    public void inquiryResultQueue() {
-        for(T value : getResultQueue()) {
-            System.out.print(value + " ");
-        }
-    }
+//    level3 요구사항 3 ArithmeticCalculator에 해당 함수 구현
+//    추상 메서드로 바꿔서?
+//    public void inquiryResultQueue() {
+//        for(T value : getResultQueue()) {
+//            System.out.print(value + " ");
+//        }
+//    }
+
+    public abstract void inquiryResultQueue();
     /* public final void calculateRadius(double radius) {
         result2 = 0;
         result2 = radius * radius * Math.PI;

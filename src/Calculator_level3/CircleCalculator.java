@@ -16,4 +16,6 @@ public class CircleCalculator<T extends Number> extends Calculator<T> {
             DivisionByZeroException, InvalidOperatorException {
         throw new UnsupportedOperationException("CircleCalculator does not support Arithmetic calculation.");
     };
+    @Override
+    public void inquiryResultQueue() {}
 }
