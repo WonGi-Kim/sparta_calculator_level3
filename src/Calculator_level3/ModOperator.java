@@ -1,8 +1,8 @@
 package Calculator_level3;
 
-public class ModOperator implements OperatorInterface {
+public class ModOperator implements OperatorInterface<Integer> {
     @Override
-    public int operate(int firstNumber, int secondNumber) {
-        return firstNumber % secondNumber;
+    public Double operate(Integer firstNumber, Integer secondNumber) {
+        return firstNumber.doubleValue() % secondNumber.doubleValue();
     }
 }

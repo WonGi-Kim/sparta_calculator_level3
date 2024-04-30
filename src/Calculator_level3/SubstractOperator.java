@@ -1,8 +1,8 @@
 package Calculator_level3;
 
-public class SubstractOperator implements OperatorInterface{
+public class SubstractOperator<T extends Number> implements OperatorInterface<T>{
     @Override
-    public int operate(int firstNumber, int secondNumber) {
-        return firstNumber - secondNumber;
+    public Double operate(T firstNumber, T secondNumber) {
+        return firstNumber.doubleValue() - secondNumber.doubleValue();
     }
 }

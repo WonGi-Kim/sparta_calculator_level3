@@ -4,10 +4,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 
-public abstract class Calculator {
+public abstract class Calculator<T extends Number> {
 
     int result;
-    private Queue<Integer> resultQueue= new LinkedList<>();
+    private Queue<T> resultQueue= new LinkedList<>();
     // 연산결과를 저장하는 컬렉션 타입, 캡슐화 private -> protected 변경
     // 접근 제어자를 변경할 경우 Arithmetic 클래스 내부 변경
     // protected Queue<Integer> resultQueue= new LinkedList<>();
@@ -22,7 +22,7 @@ public abstract class Calculator {
         System.out.println("resultQueue2 clear!: " + resultQueue2);
     }
     // 여기부터 추상 메서드 추가
-    public abstract void calculateOperation(String operator, int firstNumber, int secondNumber) throws
+    public abstract void calculateOperation(String operator, T firstNumber, T secondNumber) throws
             DivisionByZeroException, InvalidOperatorException;
 
     public abstract void calculateRadius (double radius);
@@ -57,11 +57,11 @@ public abstract class Calculator {
         resultQueue.offer(result);
         setResultQueue(resultQueue);
     } */
-    public void setResultQueue(Queue<Integer> resultQueue) {
+    public void setResultQueue(Queue<T> resultQueue) {
         this.resultQueue = resultQueue;
     }
 
-    public Queue<Integer> getResultQueue() {
+    public Queue<T> getResultQueue() {
         return resultQueue;
     }
 
@@ -70,7 +70,7 @@ public abstract class Calculator {
     }
 
     public void inquiryResultQueue() {
-        for(int value : getResultQueue()) {
+        for(T value : getResultQueue()) {
             System.out.print(value + " ");
         }
     }

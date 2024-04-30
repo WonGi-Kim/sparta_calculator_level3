@@ -1,12 +1,12 @@
 package Calculator_level3;
 
-public class DivideOperator implements OperatorInterface {
+public class DivideOperator<T extends Number> implements OperatorInterface<T> {
     @Override
-    public int operate(int firstNumber, int secondNumber) {
-        if (secondNumber == 0) {
+    public Double operate(T firstNumber, T secondNumber) {
+        if (secondNumber.doubleValue() == 0) {
             throw new ArithmeticException("Divide by zero");
         } else {
-            return firstNumber / secondNumber;
+            return firstNumber.doubleValue() / secondNumber.doubleValue();
         }
     }
 }

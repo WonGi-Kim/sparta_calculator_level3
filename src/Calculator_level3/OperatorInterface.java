@@ -1,5 +1,5 @@
 package Calculator_level3;
 
-public interface OperatorInterface {
-    int operate(int firstNumber, int secondNumber);
+public interface OperatorInterface<T extends Number> {
+    Double operate(T firstNumber, T secondNumber);
 }

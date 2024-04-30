@@ -2,7 +2,7 @@ package Calculator_level3;
 
 import java.util.Queue;
 
-public class CircleCalculator extends Calculator {
+public class CircleCalculator<T extends Number> extends Calculator<T> {
     @Override
     public void calculateRadius (double radius) {
         double result2 = 0.0;
@@ -12,7 +12,7 @@ public class CircleCalculator extends Calculator {
         setResultQueue2(tempQueue);
     };
     @Override
-    public void calculateOperation (String operator, int firstNumber, int secondNumber) throws
+    public void calculateOperation (String operator,T firstNumber, T secondNumber) throws
             DivisionByZeroException, InvalidOperatorException {
         throw new UnsupportedOperationException("CircleCalculator does not support Arithmetic calculation.");
     };

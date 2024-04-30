@@ -2,29 +2,29 @@ package Calculator_level3;
 
 import java.util.Queue;
 
-public class ArithmeticCalculator extends Calculator {
+public class ArithmeticCalculator<T extends Number> extends Calculator<T> {
 
-    private final AddOperator addOperator;
-    private final SubstractOperator substractOperator;
-    private final MultiplyOperator multiplyOperator;
-    private final DivideOperator divideOperator;
+    private final AddOperator<T> addOperator;
+    private final SubstractOperator<T> substractOperator;
+    private final MultiplyOperator<T> multiplyOperator;
+    private final DivideOperator<T> divideOperator;
     private final ModOperator modOperator;
 
     // 연산자 타입 enum 추가
     private OperatorType operatorType;
 
     public ArithmeticCalculator() {
-        this.addOperator = new AddOperator();
-        this.substractOperator = new SubstractOperator();
-        this.multiplyOperator = new MultiplyOperator();
-        this.divideOperator = new DivideOperator();
+        this.addOperator = new AddOperator<>();
+        this.substractOperator = new SubstractOperator<>();
+        this.multiplyOperator = new MultiplyOperator<>();
+        this.divideOperator = new DivideOperator<>();
         this.modOperator = new ModOperator();
     }
 
     @Override
-    public void calculateOperation(String operator, int firstNumber, int secondNumber) throws
+    public void calculateOperation(String operator, T firstNumber, T secondNumber) throws
             DivisionByZeroException, InvalidOperatorException {
-        result = 0;
+        Double result = 0.0;
 
         OperatorType operatorType = OperatorType.fromString(operator);
 
@@ -42,7 +42,7 @@ public class ArithmeticCalculator extends Calculator {
                 result = divideOperator.operate(firstNumber, secondNumber);
                 break;
             case DivideMod:
-                result = modOperator.operate(firstNumber, secondNumber);
+                result = modOperator.operate(firstNumber.intValue(), secondNumber.intValue());
                 break;
             default:
                 throw new InvalidOperatorException("잘못된 연산자 입니다.");
@@ -63,8 +63,8 @@ public class ArithmeticCalculator extends Calculator {
             throw new InvalidOperatorException("잘못된 연산자 입니다.");
         }*/
         System.out.println("결과는 : " + result);
-        Queue<Integer> tempQueue = getResultQueue();
-        tempQueue.offer(result);
+        Queue<T> tempQueue = getResultQueue();
+        tempQueue.offer((T) result);
         setResultQueue(tempQueue);
     };
 
